@@ -7,7 +7,7 @@ namespace GraphQLProvider.GraphQL
 {
     public class ProviderMutation : ObjectGraphType
     {
-        public ProviderMutation(ProductModelRepository productModelRepository)
+        public ProviderMutation(ProductModelRepository productModelRepository, ProductRepository productRepository)
         {
             FieldAsync<ProductModelType>(
                 "createModel",
@@ -20,6 +20,18 @@ namespace GraphQLProvider.GraphQL
                             async c => await productModelRepository.AddProductModel(model));
                     }
                 );
+
+            FieldAsync<ProductType>(
+               "createProduct",
+               arguments: new QueryArguments(
+                   new QueryArgument<NonNullGraphType<ProductInputType>> { Name = "product" }),
+                   resolve: async context =>
+                   {
+                       var product = context.GetArgument<Product>("product");
+                       return await context.TryAsyncResolve(
+                           async c => await productRepository.AddProduct(product));
+                   }
+               );
         }
     }
 }

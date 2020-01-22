@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using System;
 
 namespace GraphQLProvider.Repositories
 {
@@ -23,6 +24,14 @@ namespace GraphQLProvider.Repositories
                p => productModelIds.Contains(p.ProductModelID.Value)).ToListAsync();
 
             return products.ToLookup(p => p.ProductModelID.Value);
+        }
+        public async Task<Product> AddProduct(Product product)
+        {
+            product.rowguid = Guid.NewGuid();
+            product.ModifiedDate = DateTime.Now;
+            _dbContext.Products.Add(product);
+            await _dbContext.SaveChangesAsync();
+            return product;
         }
     }
 }
