@@ -365,7 +365,7 @@ Subindo nossa aplicação, podemos visuzalizar no endereço https://{yourlocalho
 Podemos agora buscar os dados requisitando apenas os campos desejados, e baseado em nosso filtro, pelo id do produto.
 Caso queira trazer todos os produtos basta remover *(id:706)* como filtro. Remova e adicione os campos desejados para melhor compreensão.
 
-```json
+```javascript
 {
   products(id:706){
    				productID,
@@ -389,7 +389,7 @@ Caso queira trazer todos os produtos basta remover *(id:706)* como filtro. Remov
 ```
 Lembrando que podemos trabalhar com subentidades, como no exemplo abaixo, buscando os productmodels com os produtos que tem seu respectivo modelo.
 
-```json
+```javascript
 {
   productModels{
     productModelID,
