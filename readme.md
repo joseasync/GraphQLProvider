@@ -356,8 +356,64 @@ public void Configure(IApplicationBuilder app)
 
 ## Tudo Pronto :smile::relaxed:
 
-No próximo commit, vamos conhecer a ferramenta GraphQLPlayground e como funciona o consumo de nossa GraphQL API.
+Subindo nossa aplicação, podemos visuzalizar no endereço https://{yourlocalhost}/ui/playground, a nossa página do GraphQL.Playground, funcionando e consumindo nosso endpoint, como podemos ver abaixo.
 
+![Playground](https://i.imgur.com/22rrNkD.png)
+
+### Buscando dados
+
+Podemos agora buscar os dados requisitando apenas os campos desejados, e baseado em nosso filtro, pelo id do produto.
+Caso queira trazer todos os produtos basta remover *(id:706)* como filtro. Remova e adicione os campos desejados para melhor compreensão.
+
+```json
+{
+  products(id:706){
+   				productID,
+          name,
+          productNumber,
+          color,
+          standardCost,
+          listPrice,
+          size,
+          weight,
+          productCategoryID,
+          productModelID,
+          sellStartDate,
+          sellEndDate,
+          discontinuedDate,
+          thumbnailPhotoFileName,
+          modifiedDate
+  }
+}
+
+```
+Lembrando que podemos trabalhar com subentidades, como no exemplo abaixo, buscando os productmodels com os produtos que tem seu respectivo modelo.
+
+```json
+{
+  productModels{
+    productModelID,
+   		name,
+    	products{
+        productID,
+          name,
+          productNumber,
+      }
+  }
+}
+```
+
+### Inserindo dados
+
+Da mesma forma podemos inserir novos dados através de nossas multations em nosso DB.
+Informando nossa estrutura de dados no aba de query e os respectivos valores na aba *Query Variables*.
+
+![insert](https://i.imgur.com/RHrMJSw.png)
+
+
+### Conclusões
+
+Espero que tenha gostado desta iniciação ao GraphQL com .NET Core de uma forma simples e direta, qualquer dúvida você poderá me achar nos links abaixo. 
 
 
 ## Autor
