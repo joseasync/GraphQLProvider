@@ -216,7 +216,7 @@ Dentro do diretório `GraphQL>Types` iremos criar nossas classes tipo "Types", r
 
 Como por exemplo as classes do tipo "Type" para *Product*.
 
-`ProductType.cs` Responsável pelos fiels e documentação das propriedades da busca no banco.
+`ProductType.cs` Responsável pelos fields e documentação das propriedades da busca no banco.
 ```csharp
 public class ProductType : ObjectGraphType<Product>
 {
@@ -244,7 +244,7 @@ public class ProductType : ObjectGraphType<Product>
 ```
 
 
-`ProductInputType.cs` Responsável pelos fiels de inserção no banco.
+`ProductInputType.cs` Responsável pelos fields de inserção no banco.
 ```csharp
 public class ProductInputType : InputObjectGraphType
 {
