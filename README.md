@@ -2,7 +2,7 @@
 
 This is a practical example of how to create a WebAPI in GraphQL in conjunction with [.NET Core 3.0](https://github.com/dotnet/aspnetcore) and hosted by Azure. On a simple ands traight way. This project was inspired by [Roland Guijt](https://github.com/RolandGuijt)
 
-*Read this in other languages: [Portuguese](README.md), [Svenska](README.se.md).*
+*Read this in other languages: [Portuguese](README.pt.md), [Svenska](README.se.md).*
 
 
 ## Basic Wizard
